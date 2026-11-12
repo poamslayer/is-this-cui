@@ -1,0 +1,210 @@
+{
+  "about": "The one source of truth for is-this-cui. SKILL.md's state table, is_this_cui.py, and scripts/check_is_this_cui.py all read this file. Edit it here, then run the check.",
+  "start": "public",
+  "states": {
+    "public": {
+      "question": "Has it been released to the public without restriction?",
+      "on": {
+        "public": {
+          "to": "Public",
+          "why": "Released without restriction, such as Distribution Statement A or a public specification.",
+          "cite": "DoDI 5230.24"
+        },
+        "nonpublic": {
+          "to": "owner",
+          "why": "Not public, so ask whose it is.",
+          "cite": ""
+        }
+      }
+    },
+    "owner": {
+      "question": "Whose information is it?",
+      "on": {
+        "ours": {
+          "to": "Proprietary (own)",
+          "why": "The company created it and holds it, so it is outside the CUI definition for the company.",
+          "cite": "32 CFR 2002.4(h)"
+        },
+        "theirs": {
+          "to": "Proprietary (third-party)",
+          "why": "A commercial party's own data, never created or held for the Government.",
+          "cite": "32 CFR 2002.4(h)"
+        },
+        "reuse": {
+          "to": "items",
+          "why": "The company made it while using CUI it received, so test the content it carries.",
+          "cite": "32 CFR 2002.4(pp)"
+        },
+        "gov": {
+          "to": "designated",
+          "why": "Provided by or generated for the Government under a contract, directly or through a prime, or a deliverable that becomes the Government's.",
+          "cite": "32 CFR 2002.4(h)"
+        }
+      }
+    },
+    "items": {
+      "question": "Does it re-use a controlled item?",
+      "on": {
+        "clean": {
+          "to": "Proprietary (own)",
+          "why": "It carries no controlled item over, so the document is the company's own.",
+          "cite": "81 FR 63334"
+        },
+        "unsure": {
+          "to": "notify",
+          "why": "Only nominal geometry or a similar disputed item matches the source, so decide and notify with the reasoning.",
+          "cite": "81 FR 63334"
+        },
+        "reuses": {
+          "to": "designated",
+          "why": "It carries at least one controlled item over, such as a tolerance, note, or requirement. Judge those items on the source's designation.",
+          "cite": "32 CFR 2002.4(pp)"
+        }
+      }
+    },
+    "designated": {
+      "question": "How is it designated?",
+      "on": {
+        "marked": {
+          "to": "authority",
+          "why": "A marking or the contract names a CUI category; for re-used items, the source's marking. Check the authority behind it.",
+          "cite": "32 CFR 2002.20"
+        },
+        "clue": {
+          "to": "notify",
+          "why": "Something says CUI may be present but names no category, so decide and notify.",
+          "cite": "DoD CUI Program FAQ, Use of Distribution Statements"
+        },
+        "unmarked": {
+          "to": "FCI",
+          "why": "No marking and no clue about this item, from a source that marks correctly. Contract information that is not CUI is FCI.",
+          "cite": "FAR 52.204-21"
+        }
+      }
+    },
+    "authority": {
+      "question": "Does a Registry category's authority reach this content?",
+      "on": {
+        "yes": {
+          "to": "CUI",
+          "why": "A law, regulation, or Government-wide policy named in a Registry category reaches the content.",
+          "cite": "32 CFR 2002.12(a)"
+        },
+        "no": {
+          "to": "notify",
+          "why": "The marking claims a category whose authority does not reach the content, so propose the correction.",
+          "cite": "32 CFR 2002.50"
+        }
+      }
+    },
+    "notify": {
+      "question": "What status do you propose, and on what evidence?",
+      "on": {
+        "propose_cui": {
+          "to": "notice_open",
+          "proposed": "CUI",
+          "why": "Notice sent proposing CUI with its category. Safeguard as CUI while it is open.",
+          "cite": "32 CFR 2002.50(a)"
+        },
+        "propose_fci": {
+          "to": "notice_open",
+          "proposed": "FCI",
+          "why": "Notice sent proposing not CUI, FCI. Safeguard as CUI while it is open.",
+          "cite": "32 CFR 2002.50(a)"
+        },
+        "propose_own": {
+          "to": "notice_open",
+          "proposed": "Proprietary (own)",
+          "why": "Notice sent proposing not CUI, the company's own. Safeguard as CUI while it is open.",
+          "cite": "32 CFR 2002.50(a)"
+        },
+        "propose_theirs": {
+          "to": "notice_open",
+          "proposed": "Proprietary (third-party)",
+          "why": "Notice sent proposing not CUI, the sender's own proprietary data. Safeguard as CUI while it is open.",
+          "cite": "32 CFR 2002.50(a)"
+        }
+      }
+    },
+    "notice_open": {
+      "question": "Has the window passed, or did the source reply?",
+      "on": {
+        "silence": {
+          "to": "$proposed",
+          "why": "No reply by the reply-by date in the notice accepts it, so the proposed status becomes the record.",
+          "cite": "ADR-0005"
+        },
+        "reply_cui": {
+          "to": "CUI",
+          "why": "The source replied with a category and authority.",
+          "cite": "32 CFR 2002.50"
+        },
+        "reply_fci": {
+          "to": "FCI",
+          "why": "The source replied that it is not CUI.",
+          "cite": "32 CFR 2002.50"
+        },
+        "reply_own": {
+          "to": "Proprietary (own)",
+          "why": "The source replied that it is not CUI and is the company's own.",
+          "cite": "32 CFR 2002.50"
+        },
+        "reply_theirs": {
+          "to": "Proprietary (third-party)",
+          "why": "The source replied that it is not CUI and is its own proprietary data.",
+          "cite": "32 CFR 2002.50"
+        }
+      }
+    }
+  },
+  "outcomes": {
+    "Public": {
+      "cui": false
+    },
+    "Proprietary (own)": {
+      "cui": false
+    },
+    "Proprietary (third-party)": {
+      "cui": false
+    },
+    "FCI": {
+      "cui": false
+    },
+    "CUI": {
+      "cui": true
+    }
+  },
+  "reopen": {
+    "event": "reopen",
+    "why": "New evidence, such as a new marking, a contract change, or a correction, starts the item again at the first state.",
+    "cite": "32 CFR 2002.50"
+  },
+  "holding": {
+    "notify": "Potentially CUI, notice drafted",
+    "notice_open": "Potentially CUI, notice sent"
+  },
+  "guards": [
+    {
+      "outcome": "CUI",
+      "only_from": [
+        "authority",
+        "notice_open"
+      ],
+      "why": "Nothing is CUI without a Registry authority or the source's own reply."
+    },
+    {
+      "state": "authority",
+      "only_from": [
+        "designated"
+      ],
+      "why": "The authority is checked only after the designation, including for re-used items, which take their source's designation."
+    },
+    {
+      "state": "notice_open",
+      "only_from": [
+        "notify"
+      ],
+      "why": "A notice always carries a proposed status."
+    }
+  ]
+}

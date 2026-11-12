@@ -1,0 +1,3 @@
+interface:
+  display_name: "Is This CUI?"
+  short_description: "Walk one item through the CUI state table: public, owner, re-use, designation, authority, notify"

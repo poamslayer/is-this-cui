@@ -1,0 +1,246 @@
+{
+  "about": "Worked items, each an event list with the status it must end in. Kept outside the skill folder so a cold run of the skill cannot read the fixture's answers. The fixture rows come from docs/fixture/known-answers.md section 6.1. scripts/check_is_this_cui.py replays every one.",
+  "traces": [
+    {
+      "item": "Fixture: drawing 4471-003 Rev C, banner and CTI statement",
+      "events": [
+        "nonpublic",
+        "gov",
+        "marked",
+        "yes"
+      ],
+      "status": "CUI"
+    },
+    {
+      "item": "Fixture: shop sketch 4471, copies three critical dimensions",
+      "events": [
+        "nonpublic",
+        "reuse",
+        "reuses",
+        "marked",
+        "yes"
+      ],
+      "status": "CUI"
+    },
+    {
+      "item": "Fixture: traveler TRV-2026-0312, thumbnail and dimensions",
+      "events": [
+        "nonpublic",
+        "reuse",
+        "reuses",
+        "marked",
+        "yes"
+      ],
+      "status": "CUI"
+    },
+    {
+      "item": "Fixture: FAI report 4471-003, restates every dimension",
+      "events": [
+        "nonpublic",
+        "reuse",
+        "reuses",
+        "marked",
+        "yes"
+      ],
+      "status": "CUI"
+    },
+    {
+      "item": "Fixture: work instruction WI-M-17, no customer data",
+      "events": [
+        "nonpublic",
+        "ours"
+      ],
+      "status": "Proprietary (own)"
+    },
+    {
+      "item": "Fixture: g-code 4471C-op10, the shop's own toolpaths",
+      "events": [
+        "nonpublic",
+        "reuse",
+        "clean"
+      ],
+      "status": "Proprietary (own)"
+    },
+    {
+      "item": "G-code whose coordinates match nominal dimensions, notice sent proposing not CUI",
+      "events": [
+        "nonpublic",
+        "reuse",
+        "unsure",
+        "propose_fci"
+      ],
+      "status": "Potentially CUI, notice sent"
+    },
+    {
+      "item": "Fixture: PO-8812 raw material, stock size and quantity",
+      "events": [
+        "nonpublic",
+        "gov",
+        "unmarked"
+      ],
+      "status": "FCI"
+    },
+    {
+      "item": "Fixture: quote Q-2026-118, written to win a government contract",
+      "events": [
+        "nonpublic",
+        "gov",
+        "unmarked"
+      ],
+      "status": "FCI"
+    },
+    {
+      "item": "Fixture: Meridian PO clause page, 'treat everything as CUI' designates nothing",
+      "events": [
+        "nonpublic",
+        "gov",
+        "unmarked"
+      ],
+      "status": "FCI"
+    },
+    {
+      "item": "Fixture: Halcyon drawing HO-2207, commercial, ITAR warning",
+      "events": [
+        "nonpublic",
+        "theirs"
+      ],
+      "status": "Proprietary (third-party)"
+    },
+    {
+      "item": "Fixture: Corvane drawing CDS-7730, contradictory markings",
+      "events": [
+        "nonpublic",
+        "gov",
+        "clue",
+        "propose_cui"
+      ],
+      "status": "Potentially CUI, notice sent"
+    },
+    {
+      "item": "Fixture: PO-3310 clauses, Level 2 in 7021 designates nothing",
+      "events": [
+        "nonpublic",
+        "gov",
+        "unmarked"
+      ],
+      "status": "FCI"
+    },
+    {
+      "item": "A prime's file marked CTI that is a delivery schedule, prime agrees",
+      "events": [
+        "nonpublic",
+        "gov",
+        "marked",
+        "no",
+        "propose_fci",
+        "reply_fci"
+      ],
+      "status": "FCI"
+    },
+    {
+      "item": "Distribution C with a non-CUI category, proposed CUI, no reply",
+      "events": [
+        "nonpublic",
+        "gov",
+        "clue",
+        "propose_cui",
+        "silence"
+      ],
+      "status": "CUI"
+    },
+    {
+      "item": "A public fuel specification",
+      "events": [
+        "public"
+      ],
+      "status": "Public"
+    },
+    {
+      "item": "A dimension copied from an unmarked drawing received under a DoD contract",
+      "events": [
+        "nonpublic",
+        "reuse",
+        "reuses",
+        "unmarked"
+      ],
+      "status": "FCI"
+    },
+    {
+      "item": "Re-decided after the customer re-marks a drawing",
+      "events": [
+        "nonpublic",
+        "gov",
+        "unmarked",
+        "reopen",
+        "nonpublic",
+        "gov",
+        "marked",
+        "yes"
+      ],
+      "status": "CUI"
+    },
+    {
+      "item": "A notice drafted but not yet sent",
+      "events": [
+        "nonpublic",
+        "gov",
+        "clue"
+      ],
+      "status": "Potentially CUI, notice drafted"
+    },
+    {
+      "item": "A prime's own drawing, proposed as its proprietary data, prime agrees",
+      "events": [
+        "nonpublic",
+        "gov",
+        "clue",
+        "propose_theirs",
+        "reply_theirs"
+      ],
+      "status": "Proprietary (third-party)"
+    },
+    {
+      "item": "A production dashboard showing customer part numbers and descriptions, no technical data",
+      "events": [
+        "nonpublic",
+        "reuse",
+        "clean"
+      ],
+      "status": "Proprietary (own)"
+    }
+  ],
+  "rejects": [
+    {
+      "item": "Content first: jumping to the authority before ownership",
+      "events": [
+        "nonpublic",
+        "yes"
+      ]
+    },
+    {
+      "item": "Calling it CUI because it came from a CUI drawing",
+      "events": [
+        "nonpublic",
+        "reuse",
+        "yes"
+      ]
+    },
+    {
+      "item": "A notice with no proposed status",
+      "events": [
+        "nonpublic",
+        "gov",
+        "clue",
+        "silence"
+      ]
+    },
+    {
+      "item": "Changing an outcome without reopening",
+      "events": [
+        "nonpublic",
+        "ours",
+        "gov"
+      ]
+    }
+  ]
+}

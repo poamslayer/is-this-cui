@@ -10,9 +10,7 @@ You'd think the clause answers that. It doesn't. 7012 goes into almost every DoD
 
 > Use the clause at 252.204-7012, Safeguarding Covered Defense Information and Cyber Incident Reporting, in all solicitations and contracts, including solicitations and contracts using FAR part 12 procedures for the acquisition of commercial products and commercial services, except for solicitations and contracts solely for the acquisition of COTS items.
 
-All solicitations and contracts. Jacob Horne, a cybersecurity policy researcher who has spent years explaining this to the DIB and the DoD, put it bluntly in a LinkedIn comment this month:
-
-> stop including 7012 in all contracts by default. Only include 7012 when CUI is involved. That one decision has singlehandedly prevented supply chain cyber from being able to move forward.
+All solicitations and contracts.
 
 Translate: the one clause that's supposed to warn you CUI is coming shows up whether CUI is coming or not.
 

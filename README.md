@@ -2,7 +2,7 @@
 
 Agent skills that help you answer the question nobody can answer: is this CUI?
 
-Your prime sends a drawing with no banner on it, a DFARS 7012 clause in the PO, and a line at the bottom of the email: "please treat everything as CUI to be safe."
+Your prime sends a drawing with no banner on it and a DFARS 7012 clause in the PO. Nobody says a word about CUI.
 
 So is it CUI?
 
@@ -22,7 +22,7 @@ Most people start with what the document says. That's backwards. Who owns it com
 
 Translate: if you made it, and it lives on your systems, it's not CUI to you.
 
-After ownership comes designation, then whether a law actually reaches the content. A 7012 clause doesn't designate anything. Neither does "treat everything as CUI." The DoD's own FAQ says it plainly: *"The application of a distribution statement does not automatically mean the document is CUI."*
+After ownership comes designation, then whether a law actually reaches the content. A 7012 clause doesn't designate anything. Neither does a CMMC Level 2 requirement in the PO. The DoD's own FAQ says it plainly: *"The application of a distribution statement does not automatically mean the document is CUI."*
 
 The skill walks that order as a state machine, and it won't let an agent jump to CUI without passing the authority check. You can't skip a step even if you want to.
 

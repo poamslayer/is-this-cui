@@ -6,6 +6,16 @@ Your prime sends a drawing with no banner on it and a DFARS 7012 clause in the P
 
 So is it CUI?
 
+You'd think the clause answers that. It doesn't. 7012 goes into almost every DoD contract, CUI or not. Here's the rule that puts it there, DFARS 204.7304(c):
+
+> Use the clause at 252.204-7012, Safeguarding Covered Defense Information and Cyber Incident Reporting, in all solicitations and contracts, including solicitations and contracts using FAR part 12 procedures for the acquisition of commercial products and commercial services, except for solicitations and contracts solely for the acquisition of COTS items.
+
+All solicitations and contracts. Jacob Horne, a cybersecurity policy researcher who has spent years explaining this to the DIB and the DoD, put it bluntly in a LinkedIn comment this month:
+
+> stop including 7012 in all contracts by default. Only include 7012 when CUI is involved. That one decision has singlehandedly prevented supply chain cyber from being able to move forward.
+
+Translate: the one clause that's supposed to warn you CUI is coming shows up whether CUI is coming or not.
+
 Ask the prime, and they'll tell you to ask the contracting officer. Ask the contracting officer, and they'll tell you the program office designates CUI, not them. Ask your assessor, and you'll find out deciding CUI isn't their job either.
 
 Nobody's going to answer it for you. So you answer it yourself, on the evidence, and you write down why.
@@ -48,7 +58,7 @@ The biggest lesson was export control. CTI only exists where the ITAR or EAR con
 
 ## How `is-this-cui` decides
 
-The method is a state machine. The agent chooses one event at each state; [`is_this_cui.py`](skills/is-this-cui/is_this_cui.py) keeps the order, refuses an event that does not answer the current state, and prints each step with its reason and citation. The table is [`transitions.json`](skills/is-this-cui/transitions.json):
+The method is a state machine. The agent chooses one event at each state, and [`is_this_cui.py`](skills/is-this-cui/is_this_cui.py) keeps the order, refuses an event that does not answer the current state, and prints each step with its reason and citation. The table is [`transitions.json`](skills/is-this-cui/transitions.json):
 
 | State | Question | Event → next |
 |---|---|---|
@@ -83,7 +93,7 @@ The skills name a few companions (`cui-marking-check`, `cui-re-use-triage`, `gcc
 
 ## Not legal advice
 
-These skills help a person reason and keep a record. They do not make a CUI designation or an export classification; the contract, the source, and the design authority or export counsel do.
+These skills help a person reason and keep a record. They do not make a CUI designation or an export classification. the contract, the source, and the design authority or export counsel do.
 
 ## License
 

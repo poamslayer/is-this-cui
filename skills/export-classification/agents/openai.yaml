@@ -1,0 +1,3 @@
+interface:
+  display_name: "Export Classification"
+  short_description: "ITAR/EAR order of review for an item and its technical data, as a classification memo"

@@ -1,6 +1,40 @@
 # is-this-cui
 
-Agent skills that answer "is this CUI?" the way a careful practitioner does, and settle the ITAR and EAR question it usually turns on.
+Agent skills that help you answer the question nobody can answer: is this CUI?
+
+Your prime sends a drawing with no banner on it, a DFARS 7012 clause in the PO, and a line at the bottom of the email: "please treat everything as CUI to be safe."
+
+So is it CUI?
+
+Ask the prime, and they'll tell you to ask the contracting officer. Ask the contracting officer, and they'll tell you the program office designates CUI, not them. Ask your assessor, and you'll find out deciding CUI isn't their job either.
+
+Nobody's going to answer it for you. So you answer it yourself, on the evidence, and you write down why.
+
+These skills walk an agent through that decision in a fixed order and leave the written record behind.
+
+## Ownership comes before content
+
+Think of a CUI determination like a firewall rule set. The order you process things in decides the answer.
+
+Most people start with what the document says. That's backwards. Who owns it comes first. Here's the definition, 32 CFR 2002.4(h):
+
+> CUI does not include ... information a non-executive branch entity possesses and maintains in its own systems that did not come from, or was not created or possessed by or for, an executive branch agency or an entity acting for an agency.
+
+Translate: if you made it, and it lives on your systems, it's not CUI to you.
+
+After ownership comes designation, then whether a law actually reaches the content. A 7012 clause doesn't designate anything. Neither does "treat everything as CUI." The DoD's own FAQ says it plainly: *"The application of a distribution statement does not automatically mean the document is CUI."*
+
+The skill walks that order as a state machine, and it won't let an agent jump to CUI without passing the authority check. You can't skip a step even if you want to.
+
+## Tested against people who actually know
+
+I built this the same way I passed my first CMMC Level 2 assessment: I gave Claude the experts. Then I tested it against 13 real questions from the Cooey COE Discord, graded against the answers the experts there gave.
+
+The first try went badly. It passed 3 of 8 on CUI status. The skill called g-code CUI because it came from a CUI drawing. It called a company's own CAD model CTI because the PDF it was built from was marked.
+
+Every failure turned into a rule. After the fixes, 12 of 13 pass, and the one that still fails is a known gap.
+
+The biggest lesson was export control. CTI only exists where the ITAR or EAR controls the data, and most people skip right past that. My first draft did too. If no export rule catches the data, it can't be CTI, so `export-classification` now settles that question before `is-this-cui` calls anything CTI.
 
 ![The is-this-cui state table](docs/diagrams/is-this-cui.drawio.png)
 
@@ -36,7 +70,6 @@ The order is the rule: whose information it is comes before what it says, and no
 
 - [`scripts/check_is_this_cui.py`](scripts/check_is_this_cui.py) walks every path through the table (108 of them), fails on an open end or a broken guard, and replays [21 worked traces](scripts/is_this_cui_traces.json) and 4 that must be rejected. It runs on every push.
 - [`scripts/check_authorities.py`](scripts/check_authorities.py) fails when a skill cites a URL that is not in [`skills/is-this-cui/reference/authorities.md`](skills/is-this-cui/reference/authorities.md). Regulations are linked live at eCFR, not copied, because they change.
-- The skills were evaluated against 13 real questions from a practitioner community, each graded blind against an export-control and CUI practitioner's own published answer. First-try pass rate: 3 of 8 on CUI status before the fixes those cases exposed, 5 of 6 on export classification. The cases quote community members, so they are not published here.
 
 ## Install
 

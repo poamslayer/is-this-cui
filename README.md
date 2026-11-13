@@ -1,6 +1,8 @@
 # is-this-cui
 
-![Homer Simpson reading a book: "I don't understand anything."](docs/images/i-dont-understand-anything.gif)
+<p align="center">
+  <img src="docs/images/i-dont-understand-anything.gif" alt="Homer Simpson reading a book: &quot;I don't understand anything.&quot;">
+</p>
 
 **Agent skills that help you answer the question nobody can answer: is this CUI?**
 

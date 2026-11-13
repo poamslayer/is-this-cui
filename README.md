@@ -1,5 +1,7 @@
 # is-this-cui
 
+![Homer Simpson reading a book: "I don't understand anything."](docs/images/i-dont-understand-anything.gif)
+
 **Agent skills that help you answer the question nobody can answer: is this CUI?**
 
 The DFARS 252.204-7012 clause is included in contracts by default. Even if there's no CUI on the contract. Leaving thousands of organizations confused about their cybersecurity obligations.

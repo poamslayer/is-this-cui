@@ -1,41 +1,6 @@
 ---
 name: export-control-overlay
 description: Work out how ITAR and EAR sit on top of a CUI determination, catch the reflex that export-controlled data is automatically CUI, apply the deemed-export rule to foreign nationals and foreign-staffed service providers, and decide where classification authority actually sits. Use whenever technical data, a foreign national, an MSSP or EDR vendor, or a cloud region enters the conversation.
-vault_sources:
-  - "Export Controls and CUI"
-  - "Practitioner insights A"
-  - "Practitioner insights B"
-  - "Controlled Technical Information"
-  - "Marking CTI"
-  - "Public panel analyzing a 2019 DDTC consent agreement involving an infrared-sensor manufacturer (FLIR), hosted by Summit 7: https://www.youtube.com/watch?v=qS44dOwoWUs"
-  - "Public panel on practical ITAR compliance steps, hosted by Summit 7: https://www.youtube.com/watch?v=xhFX1eCHHSI"
-  - "raw/dodcui--Export-Control--Export-Controlled.md"
-public_sources:
-  - "DoDI 5230.24, Distribution Statements on DoD Technical Information, January 10, 2023: https://www.esd.whs.mil/Portals/54/Documents/DD/issuances/dodi/523024p.pdf"
-  - "22 CFR 120.50 (export, including the deemed export at (a)(2)): https://www.ecfr.gov/current/title-22/section-120.50"
-  - "22 CFR 120.56 (release definition): https://www.ecfr.gov/current/title-22/chapter-I/subchapter-M/part-120/section-120.56"
-  - "22 CFR Part 120 (ITAR definitions): https://www.ecfr.gov/current/title-22/chapter-I/subchapter-M/part-120"
-  - "22 CFR 120.11 (ITAR order of review): https://www.ecfr.gov/current/title-22/section-120.11"
-  - "22 CFR 120.33 (ITAR technical data): https://www.ecfr.gov/current/title-22/section-120.33"
-  - "15 CFR 772.1 (EAR definition of technology): https://www.ecfr.gov/current/title-15/section-772.1"
-  - "DFARS 252.225-7048 (export-controlled items clause): https://www.ecfr.gov/current/title-48/section-252.225-7048"
-  - "15 CFR 734.3 (items subject and not subject to the EAR, EAR99): https://www.ecfr.gov/current/title-15/section-734.3"
-  - "15 CFR Part 774, Supplement No. 4 (Commerce Control List order of review): https://www.ecfr.gov/current/title-15/part-774/appendix-Supplement%20No.%204%20to%20Part%20774"
-  - "DoD CUI Export Controlled category page: https://www.dodcui.mil/Export-Control/Export-Controlled/"
-  - "Public panel analyzing a 2019 DDTC consent agreement involving an infrared-sensor manufacturer (FLIR): https://www.youtube.com/watch?v=qS44dOwoWUs"
-  - "Public panel on practical ITAR compliance steps for small and mid-size businesses: https://www.youtube.com/watch?v=xhFX1eCHHSI"
-  - "32 CFR Part 2002 (CUI program): https://www.ecfr.gov/current/title-32/subtitle-B/chapter-XX/part-2002"
-  - "22 CFR 120.54 (activities that are not exports; the encrypted-storage rule at (a)(5)): https://www.ecfr.gov/current/title-22/section-120.54"
-  - "22 CFR 122.1 (registration, including manufacturers that do not export): https://www.ecfr.gov/current/title-22/section-122.1"
-  - "22 CFR 122.5 (records of registrants): https://www.ecfr.gov/current/title-22/section-122.5"
-  - "22 CFR 125.4 (exemptions; (b)(9) technical data taken abroad by travelling employees): https://www.ecfr.gov/current/title-22/section-125.4"
-  - "22 CFR 126.1 (proscribed countries): https://www.ecfr.gov/current/title-22/section-126.1"
-  - "22 CFR 127.12 (voluntary disclosures): https://www.ecfr.gov/current/title-22/section-127.12"
-  - "15 CFR 734.18 (activities that are not exports under the EAR; encrypted data at (a)(5)): https://www.ecfr.gov/current/title-15/section-734.18"
-  - "15 CFR 740.9 (License Exception TMP; tools of trade and technology taken abroad): https://www.ecfr.gov/current/title-15/section-740.9"
-  - "15 CFR 762.6 (EAR record retention): https://www.ecfr.gov/current/title-15/section-762.6"
-  - "15 CFR 764.5 (voluntary self-disclosures to BIS): https://www.ecfr.gov/current/title-15/section-764.5"
-  - "BIS, Export Compliance Guidelines: The Elements of an Effective Export Compliance Program: https://www.bis.gov/media/documents/export-compliance-guidelines"
 ---
 
 # Export control overlay

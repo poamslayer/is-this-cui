@@ -1,38 +1,6 @@
 ---
 name: is-this-cui
-description: Decide whether a document, a data field, or a whole data type is CUI, by walking a fixed state table: public, then whose it is, then re-used content, then how it is designated, then whether a Registry authority reaches it, ending in CUI with its category, FCI, Proprietary, Public, or "potentially CUI, notice sent". Covers a subcontractor that only sees its prime. Use whenever the operator or another skill asks "is this CUI?".
-vault_sources:
-  - "How to Identify CUI"
-  - "Practitioner insights A"
-  - "Practitioner insights B"
-  - "Controlled Unclassified Information"
-  - "How CUI Flows Through a Contractor"
-  - "CUI and Supply Chain Position"
-  - "Data Rights Assertions"
-  - "Reverse SCG Technique"
-  - "Controlled Technical Information"
-public_sources:
-  - "32 CFR 2002.4 (definitions: (h) CUI, (ee) misuse, (pp) re-use): https://www.ecfr.gov/current/title-32/section-2002.4"
-  - "32 CFR 2002.12 (categories are the exclusive designations): https://www.ecfr.gov/current/title-32/section-2002.12"
-  - "32 CFR 2002.14 (safeguarding; (h)(2) NIST SP 800-171 for non-Federal systems): https://www.ecfr.gov/current/title-32/section-2002.14"
-  - "32 CFR 2002.20 (marking): https://www.ecfr.gov/current/title-32/section-2002.20"
-  - "32 CFR 2002.50 (challenges to a designation): https://www.ecfr.gov/current/title-32/section-2002.50"
-  - "81 FR 63324, CUI final rule, preamble at 63334: https://www.federalregister.gov/documents/2016/09/14/2016-21665/controlled-unclassified-information"
-  - "32 CFR 170.4 (Security Protection Data definition): https://www.ecfr.gov/current/title-32/section-170.4"
-  - "DFARS 252.204-7012: https://www.ecfr.gov/current/title-48/chapter-2/subchapter-H/part-252/subpart-252.2/section-252.204-7012"
-  - "DFARS 252.227-7013, Rights in Technical Data: https://www.ecfr.gov/current/title-48/chapter-2/subchapter-H/part-252/subpart-252.2/section-252.227-7013"
-  - "FAR 52.204-21: https://www.ecfr.gov/current/title-48/section-52.204-21"
-  - "22 CFR 120.33 (ITAR technical data): https://www.ecfr.gov/current/title-22/section-120.33"
-  - "22 CFR 120.34 (public domain): https://www.ecfr.gov/current/title-22/section-120.34"
-  - "15 CFR 772.1 (EAR technology, required): https://www.ecfr.gov/current/title-15/section-772.1"
-  - "15 CFR 734.3 (not subject to the EAR): https://www.ecfr.gov/current/title-15/section-734.3"
-  - "10 U.S.C. 130 (technical data with military or space application): https://www.law.cornell.edu/uscode/text/10/130"
-  - "DoDI 5200.48, para 3.6.a: https://www.esd.whs.mil/Portals/54/Documents/DD/issuances/dodi/520048p.PDF"
-  - "DoDI 5230.24, Distribution Statements on DoD Technical Information, January 10, 2023: https://www.esd.whs.mil/Portals/54/Documents/DD/issuances/dodi/523024p.pdf"
-  - "DoD CUI Program FAQ, Use of Distribution Statements: https://www.dodcui.mil/Frequently-Asked-Questions/Use-of-Distribution-Statements/"
-  - "CUI Registry, National Archives, mirrored at dodcui.mil: https://www.dodcui.mil/CUI-Categories-and-Abbreviations/"
-  - "DoD Cybersecurity FAQs on DFARS Subpart 204.73, A32: https://dodprocurementtoolbox.com/uploads/Cybersecurity_FAQ_update_12_19_22_ba047be683.pdf"
-  - "How To Know If You Have CUI, a talk by Ryan Bonner at CS2, hosted by Summit 7: https://www.youtube.com/watch?v=IEy-TkmKMt8"
+description: 'Decide whether a document, a data field, or a whole data type is CUI, by walking a fixed state table: public, then whose it is, then re-used content, then how it is designated, then whether a Registry authority reaches it, ending in CUI with its category, FCI, Proprietary, Public, or "potentially CUI, notice sent". Covers a subcontractor that only sees its prime. Use whenever the operator or another skill asks "is this CUI?".'
 ---
 
 # Is this CUI?

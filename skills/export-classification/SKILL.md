@@ -1,25 +1,6 @@
 ---
 name: export-classification
 description: Classify an item and its data under the ITAR or the EAR, and say whether the data is technical data at all. Use when a drawing, model, NC program, test report, or part needs a jurisdiction, or when a CTI or Export Controlled answer depends on one.
-vault_sources:
-  - "Export Controls and CUI"
-  - "Controlled Technical Information"
-  - "Practitioner insights A"
-  - "Practitioner insights B"
-public_sources:
-  - "22 CFR 121.1 (the U.S. Munitions List): https://www.ecfr.gov/current/title-22/section-121.1"
-  - "22 CFR 120.11 (ITAR order of review): https://www.ecfr.gov/current/title-22/section-120.11"
-  - "22 CFR 120.12 (commodity jurisdiction requests): https://www.ecfr.gov/current/title-22/section-120.12"
-  - "22 CFR 120.31 (defense article; unfinished products at (a)(2)): https://www.ecfr.gov/current/title-22/section-120.31"
-  - "22 CFR 120.33 (ITAR technical data): https://www.ecfr.gov/current/title-22/section-120.33"
-  - "22 CFR 120.34 (public domain): https://www.ecfr.gov/current/title-22/section-120.34"
-  - "22 CFR 120.40 (compositional terms): https://www.ecfr.gov/current/title-22/section-120.40"
-  - "22 CFR 120.41 (specially designed): https://www.ecfr.gov/current/title-22/section-120.41"
-  - "22 CFR 120.42 (enumerated and catch-all control): https://www.ecfr.gov/current/title-22/section-120.42"
-  - "15 CFR 734.3 (subject and not subject to the EAR, EAR99): https://www.ecfr.gov/current/title-15/section-734.3"
-  - "15 CFR 772.1 (technology, required, specially designed): https://www.ecfr.gov/current/title-15/section-772.1"
-  - "15 CFR Part 774, Supplement No. 4 (CCL order of review): https://www.ecfr.gov/current/title-15/part-774/appendix-Supplement%20No.%204%20to%20Part%20774"
-  - "10 U.S.C. 130 (technical data with military or space application): https://www.law.cornell.edu/uscode/text/10/130"
 ---
 
 # Export classification
@@ -57,4 +38,18 @@ Append one entry per item to `scope/export-classifications.md`:
 - Open items: <requests and documents still missing>
 ```
 
-The rules are linked in `public_sources` above.
+## Sources
+
+- 22 CFR 121.1 (the U.S. Munitions List): https://www.ecfr.gov/current/title-22/section-121.1.
+- 22 CFR 120.11 (ITAR order of review): https://www.ecfr.gov/current/title-22/section-120.11.
+- 22 CFR 120.12 (commodity jurisdiction requests): https://www.ecfr.gov/current/title-22/section-120.12.
+- 22 CFR 120.31 (defense article; unfinished products at (a)(2)): https://www.ecfr.gov/current/title-22/section-120.31.
+- 22 CFR 120.33 (ITAR technical data): https://www.ecfr.gov/current/title-22/section-120.33.
+- 22 CFR 120.34 (public domain): https://www.ecfr.gov/current/title-22/section-120.34.
+- 22 CFR 120.40 (compositional terms): https://www.ecfr.gov/current/title-22/section-120.40.
+- 22 CFR 120.41 (specially designed): https://www.ecfr.gov/current/title-22/section-120.41.
+- 22 CFR 120.42 (enumerated and catch-all control): https://www.ecfr.gov/current/title-22/section-120.42.
+- 15 CFR 734.3 (subject and not subject to the EAR, EAR99): https://www.ecfr.gov/current/title-15/section-734.3.
+- 15 CFR 772.1 (technology, required, specially designed): https://www.ecfr.gov/current/title-15/section-772.1.
+- 15 CFR Part 774, Supplement No. 4 (CCL order of review): https://www.ecfr.gov/current/title-15/part-774/appendix-Supplement%20No.%204%20to%20Part%20774.
+- 10 U.S.C. 130 (technical data with military or space application): https://www.law.cornell.edu/uscode/text/10/130.

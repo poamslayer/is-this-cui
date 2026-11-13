@@ -8,6 +8,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Every SKILL.md has spec frontmatter
+        run: pip install pyyaml && python3 scripts/check_frontmatter.py
       - name: Walk every path through the state table
         run: python3 scripts/check_is_this_cui.py
       - name: Every cited URL is in the register

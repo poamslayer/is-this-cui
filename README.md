@@ -1,22 +1,8 @@
 # is-this-cui
 
-Agent skills that help you answer the question nobody can answer: is this CUI?
+**Agent skills that help you answer the question nobody can answer: is this CUI?**
 
-Your prime sends a drawing with no banner on it and a DFARS 7012 clause in the PO. Nobody says a word about CUI.
-
-So is it CUI?
-
-You'd think the clause answers that. It doesn't. 7012 goes into almost every DoD contract, CUI or not. Here's the rule that puts it there, DFARS 204.7304(c):
-
-> Use the clause at 252.204-7012, Safeguarding Covered Defense Information and Cyber Incident Reporting, in all solicitations and contracts, including solicitations and contracts using FAR part 12 procedures for the acquisition of commercial products and commercial services, except for solicitations and contracts solely for the acquisition of COTS items.
-
-All solicitations and contracts.
-
-Translate: the one clause that's supposed to warn you CUI is coming shows up whether CUI is coming or not.
-
-Ask the prime, and they'll tell you to ask the contracting officer. Ask the contracting officer, and they'll tell you the program office designates CUI, not them. Ask your assessor, and you'll find out deciding CUI isn't their job either.
-
-Nobody's going to answer it for you. So you answer it yourself, on the evidence, and you write down why.
+The DFARS 252.204-7012 clause is included in contracts by default. Even if there's no CUI on the contract. Leaving thousands of organizations confused about their cybersecurity obligations.
 
 These skills walk an agent through that decision in a fixed order and leave the written record behind.
 
@@ -44,8 +30,6 @@ Every failure turned into a rule. After the fixes, 12 of 13 pass, and the one th
 
 The biggest lesson was export control. CTI only exists where the ITAR or EAR controls the data, and most people skip right past that. My first draft did too. If no export rule catches the data, it can't be CTI, so `export-classification` now settles that question before `is-this-cui` calls anything CTI.
 
-![The is-this-cui state table](docs/diagrams/is-this-cui.drawio.png)
-
 ## The skills
 
 | Skill | Answers |
@@ -54,9 +38,9 @@ The biggest lesson was export control. CTI only exists where the ITAR or EAR con
 | [`export-classification`](skills/export-classification/SKILL.md) | Is this item and its data controlled by the ITAR or the EAR, at which entry, and is the data technical data at all? |
 | [`export-control-overlay`](skills/export-control-overlay/SKILL.md) | Who may access export-controlled data, and how is it handled: deemed exports, encryption, travel, providers? |
 
-## How `is-this-cui` decides
+## How is-this-cui decides
 
-The method is a state machine. The agent chooses one event at each state, and [`is_this_cui.py`](skills/is-this-cui/is_this_cui.py) keeps the order, refuses an event that does not answer the current state, and prints each step with its reason and citation. The table is [`transitions.json`](skills/is-this-cui/transitions.json):
+The method is a state machine. The agent chooses one event at each state, and `is_this_cui.py` keeps the order, refuses an event that does not answer the current state, and prints each step with its reason and citation. The table is `transitions.json`:
 
 | State | Question | Event → next |
 |---|---|---|
@@ -65,19 +49,21 @@ The method is a state machine. The agent chooses one event at each state, and [`
 | `items` | Does it re-use a controlled item? | `clean` → **Proprietary (own)**. `unsure` → `notify`. `reuses` → `designated` |
 | `designated` | How is it designated? | `marked` → `authority`. `clue` → `notify`. `unmarked` → **FCI** |
 | `authority` | Does a Registry category's authority reach this content? | `yes` → **CUI**. `no` → `notify` |
-| `notify` | What status do you propose, and on what evidence? | `propose_cui` → `notice_open`. `propose_fci` → `notice_open`. `propose_own` → `notice_open`. `propose_theirs` → `notice_open` |
+| `notify` | What status do you propose, and on what evidence? | `propose_cui`, `propose_fci`, `propose_own`, `propose_theirs` → `notice_open` |
 | `notice_open` | Has the window passed, or did the source reply? | `silence` → **the proposed status**. `reply_cui` → **CUI**. `reply_fci` → **FCI**. `reply_own` → **Proprietary (own)**. `reply_theirs` → **Proprietary (third-party)** |
 
 ```bash
 python3 skills/is-this-cui/is_this_cui.py nonpublic reuse clean
 ```
 
-The order is the rule: whose information it is comes before what it says, and nothing reaches **CUI** without passing `designated` and `authority`. CTI and Export Controlled rest on the ITAR and EAR: information no export rule controls cannot be either.
+The order is the rule: whose information it is comes before what it says, and nothing reaches **CUI** without passing `designated` and `authority`. CTI and Export Controlled rest on the ITAR and EAR, so information no export rule controls cannot be either.
+
+![The is-this-cui state table](docs/diagrams/is-this-cui.drawio.png)
 
 ## How it is tested
 
-- [`scripts/check_is_this_cui.py`](scripts/check_is_this_cui.py) walks every path through the table (108 of them), fails on an open end or a broken guard, and replays [21 worked traces](scripts/is_this_cui_traces.json) and 4 that must be rejected. It runs on every push.
-- [`scripts/check_authorities.py`](scripts/check_authorities.py) fails when a skill cites a URL that is not in [`skills/is-this-cui/reference/authorities.md`](skills/is-this-cui/reference/authorities.md). Regulations are linked live at eCFR, not copied, because they change.
+- `scripts/check_is_this_cui.py` walks every path through the table (108 of them), fails on an open end or a broken guard, and replays 21 worked traces and 4 that must be rejected. It runs on every push.
+- `scripts/check_authorities.py` fails when a skill cites a URL that is not in the register. Regulations are linked live at eCFR, not copied, because they change.
 
 ## Install
 
@@ -91,7 +77,7 @@ The skills name a few companions (`cui-marking-check`, `cui-re-use-triage`, `gcc
 
 ## Not legal advice
 
-These skills help a person reason and keep a record. They do not make a CUI designation or an export classification. the contract, the source, and the design authority or export counsel do.
+These skills help a person reason and keep a record. They do not make a CUI designation or an export classification. The contract, the source, and the design authority or export counsel do.
 
 ## License
 
